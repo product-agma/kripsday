@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kripsday - Keripik Singkong Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        kripsred: '#B80505',
+                        kripsdark: '#1A1A1D',
+                        kripsyellow: '#FFB200' 
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect { background: rgba(255, 255, 255, 0.90); backdrop-filter: blur(12px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <nav class="glass-effect fixed top-0 w-full z-40 border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="https://drive.google.com/uc?export=view&id=1aBcDeFgHiJkLmNoPqRsTuVwXyZ" 
+                    alt="Kripsday Logo" 
+                    class="h-10 md:h-16 w-auto object-contain cursor-pointer">
+            </a>
+
+            <div class="flex gap-4 md:gap-8 items-center">
+                <button onclick="toggleTrackingModal()" class="text-sm font-semibold text-gray-500 hover:text-kripsdark transition duration-300">
+                    <i class="fas fa-history mr-1"></i> History & Lacak
+                </button>
+                <button onclick="toggleCartModal()" class="relative text-kripsdark hover:text-kripsred transition duration-300 p-2 bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-shopping-bag text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-kripsred text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full hidden shadow-lg">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 px-6 container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 min-h-screen md:min-h-0">
+        
+        <div class="text-center md:text-left md:w-1/2 flex flex-col justify-center">
+            <div class="mb-6">
+                <span class="bg-kripsyellow/20 text-yellow-700 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide uppercase inline-block border border-yellow-200">
+                    ✨ 100% Singkong Pilihan
+                </span>
+            </div>
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-kripsdark mb-6 leading-[1.1] tracking-tight">
+                Kriuknya Bikin <br> <span class="text-kripsred">Lupa Mantan!</span>
+            </h2>
+            <p class="text-gray-500 text-lg md:text-xl max-w-lg mx-auto md:mx-0 mb-10 leading-relaxed">
+                Keripik singkong premium dengan potongan tipis sempurna dan bumbu rempah rahasia. Sekali gigit, pantang berhenti sebelum habis.
+            </p>
+            <a href="#produk" class="bg-kripsred text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-rose-700 hover:shadow-xl hover:shadow-kripsred/40 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3 w-max mx-auto md:mx-0">
+                Pesan Sekarang <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="md:w-1/2 flex justify-center w-full relative pt-10 md:pt-0">
+            <div class="absolute inset-0 bg-kripsyellow/30 rounded-full blur-3xl transform scale-75 -z-10 animate-pulse"></div>
+            <img src="https://lh3.googleusercontent.com/u/0/d/1FkEgZ2bwnLyOpZgN9pUui1Dw4AciGhj8" alt="Kripsday Logo" class="w-[85%] max-w-[450px] rounded-[50px] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 backdrop-blur-sm">
+        </div>
+
+    </header>
+
+    <section class="bg-white py-16 border-y border-gray-100 mt-10 md:mt-0">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6">
+                <div class="w-16 h-16 bg-red-50 text-kripsred rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-leaf"></i></div>
+                <h4 class="font-bold text-xl mb-2">Bahan Alami</h4>
+                <p class="text-gray-500 text-sm">Tanpa pengawet buatan, aman buat nyemil tiap hari.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 bg-yellow-50 text-kripsyellow rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-fire-alt"></i></div>
+                <h4 class="font-bold text-xl mb-2">Bumbu Melimpah</h4>
+                <p class="text-gray-500 text-sm">Gak pelit bumbu! Semua keripik terbalut merata.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 bg-gray-50 text-gray-800 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-truck-fast"></i></div>
+                <h4 class="font-bold text-xl mb-2">Pengiriman Aman</h4>
+                <p class="text-gray-500 text-sm">Packing kardus & bubble wrap, anti remuk sampai tujuan.</p>
+            </div>
+        </div>
+    </section>
+
+    <main id="produk" class="container mx-auto px-6 py-20">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-black text-kripsdark mb-2">Pilih Varianmu</h2>
+                <p class="text-gray-500">Siap-siap ketagihan dari gigitan pertama.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden group flex flex-col">
+                <div class="h-64 bg-gray-50 relative overflow-hidden flex items-center justify-center group-hover:bg-gray-100 transition">
+                    <img src="https://lh3.googleusercontent.com/u/0/d/1qrXU1fjv97dcIN3KVSPavZIMSQHZnk4F" alt="Original">
+                </div>
+                <div class="p-6 md:p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 text-kripsdark">Kripsday Original</h3>
+                    <p class="text-gray-500 text-sm mb-4">Pedas gurih yang pas, cocok buat nemenin nonton.</p>
+                    <div class="mt-auto">
+                        <p class="text-kripsred font-black text-2xl mb-6">Rp 8.000</p>
+                        <button onclick="addToCart('Kripsday Original', 8000)" class="w-full bg-kripsdark text-white py-3.5 rounded-xl font-bold hover:bg-kripsred transition flex justify-center items-center gap-2">
+                            Tambah <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden group flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-kripsyellow text-kripsdark text-xs font-black px-3 py-1.5 rounded-full z-10 shadow-sm">⭐ BEST SELLER</div>
+                <div class="h-64 bg-red-50 relative overflow-hidden flex items-center justify-center group-hover:bg-red-100 transition">
+                    <img src="https://lh3.googleusercontent.com/u/0/d/11unYTjqJuOZR2Hj13kNnQ6VBaNDBzLDN" alt="Daun Jeruk">
+                </div>
+                <div class="p-6 md:p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 text-kripsdark">Kripsday Daun Jeruk</h3>
+                    <p class="text-gray-500 text-sm mb-4">Semerbak daun jeruk, cocok yang gasuka pedas.</p>
+                    <div class="mt-auto">
+                        <p class="text-kripsred font-black text-2xl mb-6">Rp 8.000</p>
+                        <button onclick="addToCart('Kripsday Daun Jeruk', 8000)" class="w-full bg-kripsdark text-white py-3.5 rounded-xl font-bold hover:bg-kripsred transition flex justify-center items-center gap-2">
+                            Tambah <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-kripsdark text-white py-12 mt-10">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-2xl font-black tracking-tighter mb-4">KRIPS<span class="text-kripsyellow">DAY.</span></h1>
+            <p class="text-gray-400 text-sm mb-6">Yakin cukup satu?</p>
+            <div class="flex justify-center gap-4 text-gray-400">
+                <a href="https://www.instagram.com/krips.day" class="hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://wa.me/6287746212802" class="hover:text-white"><i class="fab fa-whatsapp text-xl"></i></a>
+                <a href="mailto:kripsday53@gmail.com" class="hover:text-white"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+            <div class="mt-8 text-xs text-gray-500 border-t border-gray-800 pt-6">
+                © 2026 Kripsday. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden bg-gray-900/60 backdrop-blur-sm transition-opacity flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl flex flex-col max-h-[90vh] transform scale-95 opacity-0 transition-all duration-300 overflow-hidden" id="cart-panel">
+            
+            <div class="p-6 md:p-8 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10">
+                <h2 class="text-2xl font-black text-kripsdark">🛒 Keranjang Saya</h2>
+                <button onclick="toggleCartModal()" class="text-gray-400 hover:text-kripsred bg-gray-100 hover:bg-red-50 w-8 h-8 rounded-full flex items-center justify-center transition"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="flex-grow overflow-y-auto p-6 md:p-8 hide-scrollbar bg-gray-50">
+                <div id="cart-items" class="space-y-3 mb-8"></div>
+
+                <div id="checkout-form-container" class="hidden bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-lg mb-4 text-kripsdark">📍 Informasi Pengiriman</h3>
+                    <form id="checkout-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="nama" placeholder="Nama Penerima" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 focus:bg-white focus:ring-2 focus:ring-kripsred outline-none transition text-sm">
+                            <input type="number" id="kontak" placeholder="No. WhatsApp" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 focus:bg-white focus:ring-2 focus:ring-kripsred outline-none transition text-sm">
+                        </div>
+                        
+                        <div class="pt-2">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Metode Pengiriman</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="border border-gray-200 rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:border-kripsred hover:bg-red-50 transition has-[:checked]:border-kripsred has-[:checked]:bg-red-50 has-[:checked]:ring-1 has-[:checked]:ring-kripsred">
+                                    <input type="radio" name="pengiriman" value="cod" onchange="toggleAddressFields()" class="w-4 h-4 text-kripsred accent-kripsred" required> 
+                                    <span class="font-semibold text-sm">Bayar di Tempat (COD)</span>
+                                </label>
+                                <label class="border border-gray-200 rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:border-kripsred hover:bg-red-50 transition has-[:checked]:border-kripsred has-[:checked]:bg-red-50 has-[:checked]:ring-1 has-[:checked]:ring-kripsred">
+                                    <input type="radio" name="pengiriman" value="ekspedisi" onchange="toggleAddressFields()" class="w-4 h-4 text-kripsred accent-kripsred"> 
+                                    <span class="font-semibold text-sm">Via Ekspedisi</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="alamat-cod" class="hidden space-y-3 pt-2">
+                            <select id="kota-cod" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 outline-none focus:ring-2 focus:ring-kripsred text-sm">
+                                <option value="" disabled selected>Pilih Area COD...</option>
+                                <option value="Tangerang Selatan">Tangerang Selatan</option>
+                                <option value="Depok">Depok</option>
+                                <option value="Bogor">Bogor</option>
+                            </select>
+                            <textarea id="detail-cod" placeholder="Patokan lokasi COD (Contoh: Depan kampus UIN/Indomaret Ciputat)" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 outline-none focus:ring-2 focus:ring-kripsred text-sm" rows="2"></textarea>
+                        </div>
+
+                        <div id="alamat-ekspedisi" class="hidden space-y-3 pt-2">
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" id="provinsi" placeholder="Provinsi" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 outline-none text-sm focus:ring-2 focus:ring-kripsred">
+                                <input type="text" id="kota" placeholder="Kota/Kabupaten" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 outline-none text-sm focus:ring-2 focus:ring-kripsred">
+                            </div>
+                            <textarea id="detail-eks" placeholder="Alamat Lengkap (Jalan, RT/RW, Kode Pos)" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 outline-none text-sm focus:ring-2 focus:ring-kripsred" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-gray-100 bg-white sticky bottom-0 z-10">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-bold text-gray-500 text-sm">Total Belanja</span>
+                    <span id="cart-total" class="font-black text-2xl text-kripsred">Rp 0</span>
+                </div>
+                <button onclick="prosesCheckout()" id="btn-checkout" class="w-full bg-kripsred text-white py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-kripsred/30">
+                    Konfirmasi Pesanan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tracking-modal" class="fixed inset-0 z-50 hidden bg-gray-900/70 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative">
+            <button onclick="toggleTrackingModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-800 bg-gray-100 w-8 h-8 rounded-full flex items-center justify-center"><i class="fas fa-times"></i></button>
+            <h2 class="text-2xl font-black mb-1 text-kripsdark">History & Lacak</h2>
+            <p class="text-gray-500 text-sm mb-6">Cek status pesanan Kripsday kamu di sini.</p>
+            
+            <div class="flex gap-2 mb-6">
+                <input type="text" id="track-id" placeholder="KRP-XXXX" class="flex-grow bg-gray-50 border border-gray-200 rounded-xl p-3.5 font-mono outline-none focus:ring-2 focus:ring-kripsyellow uppercase font-bold text-sm">
+                <button onclick="cekStatus()" class="bg-kripsdark text-white px-6 rounded-xl hover:bg-black font-semibold transition shadow-md"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div id="tracking-result" class="hidden p-5 rounded-xl border border-gray-100 text-center mb-6 shadow-sm">
+                <p class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wider">Status Pesanan</p>
+                <h3 id="status-text" class="text-xl font-black uppercase tracking-wider"></h3>
+            </div>
+
+            <div class="border-t border-gray-100 pt-6">
+                <h3 class="text-sm font-bold text-gray-800 mb-3">Pesanan Terakhir Kamu:</h3>
+                <div id="order-history-list" class="space-y-3 max-h-56 overflow-y-auto hide-scrollbar text-sm">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="fixed inset-0 z-[60] hidden bg-gray-900/80 backdrop-blur-md flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center relative transform scale-95 transition-all duration-300" id="success-panel">
+            <div class="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-2xl font-black mb-1 text-kripsdark">Pesanan Berhasil!</h2>
+            <p class="text-gray-500 text-sm mb-6">Selesaikan pembayaran agar pesanan segera diproses.</p>
+            
+            <div class="bg-gray-50 flex justify-between rounded-xl p-3 border border-gray-100 mb-5 shadow-sm text-left">
+                <div>
+                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">ID Pesanan</p>
+                    <p id="success-order-id" class="font-mono text-kripsdark font-black text-sm"></p>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total</p>
+                    <p id="success-total" class="text-kripsred font-black text-sm"></p>
+                </div>
+            </div>
+
+            <div id="payment-instruction-container" class="text-left mb-6"></div>
+
+            <p class="text-[11px] font-bold text-gray-400 mb-5 tracking-wide"><i class="fas fa-info-circle"></i> CEK HISTORY PEMBELIAN UNTUK MENGECEK STATUS.</p>
+
+            <div class="flex flex-col gap-3">
+                <button id="btn-submit-proof" onclick="submitProof()" class="w-full bg-kripsdark text-white py-3.5 rounded-xl font-bold hover:bg-black transition hidden shadow-lg flex justify-center items-center gap-2">
+                    Kirim Bukti Pembayaran <i class="fas fa-paper-plane"></i>
+                </button>
+                <button id="btn-close-success" onclick="closeSuccessModal()" class="w-full bg-gray-100 text-gray-600 py-3.5 rounded-xl font-bold hover:bg-gray-200 transition hidden">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let currentOrderData = null; 
+
+        // URL HASIL DEPLOY APPS SCRIPT
+        const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5Ad5w-tJbbBylUaODR6UNatJFUU417gEcoc8jZ8oQtL9iHRcSzQVEV830k1leBLsG/exec"; 
+
+        document.addEventListener("DOMContentLoaded", renderOrderHistory);
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) existing.qty++;
+            else cart.push({ name, price, qty: 1 });
+            
+            updateCartUI();
+            
+            const badge = document.getElementById('cart-badge');
+            badge.classList.remove('hidden');
+            badge.classList.add('scale-125');
+            setTimeout(() => badge.classList.remove('scale-125'), 200);
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const formContainer = document.getElementById('checkout-form-container');
+            const totalEl = document.getElementById('cart-total');
+            const badge = document.getElementById('cart-badge');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-10 opacity-50">
+                        <i class="fas fa-shopping-basket text-4xl mb-3 text-gray-300"></i>
+                        <p class="text-gray-500 font-semibold">Keranjang masih kosong</p>
+                    </div>`;
+                formContainer.classList.add('hidden');
+                totalEl.innerText = 'Rp 0';
+                badge.classList.add('hidden');
+                document.getElementById('btn-checkout').disabled = true;
+                return;
+            }
+
+            formContainer.classList.remove('hidden');
+            document.getElementById('btn-checkout').disabled = false;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                totalItems += item.qty;
+                container.innerHTML += `
+                    <div class="flex justify-between items-center bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                        <div>
+                            <h4 class="font-bold text-gray-800">${item.name}</h4>
+                            <p class="text-sm font-semibold text-kripsred">Rp ${(item.price).toLocaleString('id-ID')}</p>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-50 p-1 rounded-lg border border-gray-100">
+                            <button onclick="ubahQty(${index}, -1)" class="w-7 h-7 bg-white rounded flex items-center justify-center text-sm font-bold shadow-sm text-gray-600 hover:text-red-500">-</button>
+                            <span class="font-bold text-sm w-4 text-center">${item.qty}</span>
+                            <button onclick="ubahQty(${index}, 1)" class="w-7 h-7 bg-white rounded flex items-center justify-center text-sm font-bold shadow-sm text-gray-600 hover:text-green-500">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalEl.innerText = `Rp ${total.toLocaleString('id-ID')}`;
+            badge.innerText = totalItems;
+            badge.classList.remove('hidden');
+        }
+
+        function ubahQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            const panel = document.getElementById('cart-panel');
+            
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    panel.classList.remove('scale-95', 'opacity-0');
+                    panel.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                panel.classList.remove('scale-100', 'opacity-100');
+                panel.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+
+        function toggleTrackingModal() {
+            const modal = document.getElementById('tracking-modal');
+            modal.classList.toggle('hidden');
+            if(!modal.classList.contains('hidden')) renderOrderHistory();
+        }
+
+        function openSuccessModal(orderId, total, orderData) {
+            document.getElementById('success-order-id').innerText = orderId;
+            document.getElementById('success-total').innerText = 'Rp ' + total.toLocaleString('id-ID');
+            
+            const container = document.getElementById('payment-instruction-container');
+            const btnSubmit = document.getElementById('btn-submit-proof');
+            const btnClose = document.getElementById('btn-close-success');
+            
+            btnSubmit.classList.add('hidden');
+            btnClose.classList.add('hidden');
+
+            if (orderData.tipe_kirim === 'COD') {
+                container.innerHTML = `
+                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 shadow-inner">
+                        <p class="font-bold text-yellow-800 text-sm mb-1"><i class="fas fa-wallet mr-1"></i> Pembayaran Cash (COD)</p>
+                        <p class="text-yellow-700 text-xs leading-relaxed">Silakan siapkan uang tunai sebesar <b class="text-yellow-900">Rp ${total.toLocaleString('id-ID')}</b> saat kurir Kripsday tiba di lokasi Anda.</p>
+                    </div>
+                `;
+                btnClose.classList.remove('hidden'); 
+            } else {
+                container.innerHTML = `
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-3">
+                        <p class="font-bold text-blue-900 text-sm mb-3">Pilih Metode Pembayaran:</p>
+                        <div class="space-y-3 mb-3 text-sm text-blue-900 font-semibold">
+                            <label class="flex items-center gap-3 cursor-pointer hover:bg-blue-100 p-2 rounded-lg transition">
+                                <input type="radio" name="pay_method" value="dana" onchange="showPayMethod('dana')" class="accent-blue-600 w-4 h-4"> Via DANA
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer hover:bg-blue-100 p-2 rounded-lg transition">
+                                <input type="radio" name="pay_method" value="bank" onchange="showPayMethod('bank')" class="accent-blue-600 w-4 h-4"> Transfer Bank (BTN)
+                            </label>
+                        </div>
+                        <div id="pay-details" class="hidden bg-white p-4 rounded-xl border border-blue-200 text-center shadow-sm"></div>
+                    </div>
+                    <div id="upload-box" class="hidden">
+                        <label class="block text-xs font-bold text-gray-700 mb-2">Upload Bukti Pembayaran <span class="text-red-500">*</span></label>
+                        <input type="file" id="bukti-file" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl p-1 bg-gray-50 outline-none" onchange="checkFile()">
+                    </div>
+                `;
+            }
+
+            const modal = document.getElementById('success-modal');
+            const panel = document.getElementById('success-panel');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                panel.classList.remove('scale-95');
+                panel.classList.add('scale-100');
+            }, 10);
+        }
+
+        function showPayMethod(method) {
+            const detail = document.getElementById('pay-details');
+            const upload = document.getElementById('upload-box');
+            detail.classList.remove('hidden');
+            upload.classList.remove('hidden');
+
+            if(method === 'dana') {
+                detail.innerHTML = `
+                    <p class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wider">Nomor DANA</p>
+                    <p class="text-2xl font-black text-blue-600 tracking-wider">08324292839</p>
+                `;
+            } else {
+                detail.innerHTML = `
+                    <p class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wider">No Rekening BTN</p>
+                    <p class="text-2xl font-black text-blue-600 tracking-wider">217878392</p>
+                    <p class="text-[11px] font-bold text-gray-800 mt-2 bg-gray-100 inline-block px-3 py-1 rounded-full">A/N THYRA DRASZYE</p>
+                `;
+            }
+            checkFile();
+        }
+
+        function checkFile() {
+            const file = document.getElementById('bukti-file');
+            const btn = document.getElementById('btn-submit-proof');
+            if(file && file.files.length > 0) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        }
+
+        function submitProof() {
+            const fileInput = document.getElementById('bukti-file');
+            if(!fileInput || fileInput.files.length === 0) return alert("Pilih file bukti pembayaran terlebih dahulu!");
+            
+            const file = fileInput.files[0];
+            const btn = document.getElementById('btn-submit-proof');
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengunggah...`;
+            btn.disabled = true;
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const base64Data = e.target.result.split(',')[1];
+                const extension = file.name.split('.').pop();
+                
+                const safeDate = currentOrderData.waktu.replace(/[\/\:]/g, '-').replace(/ /g, '_');
+                const fileName = `${currentOrderData.nama} - ${safeDate} - ${currentOrderData.id}.${extension}`;
+
+                const payload = {
+                    action: "UPLOAD_PROOF",
+                    id: currentOrderData.id,
+                    fileName: fileName,
+                    mimeType: file.type,
+                    base64: base64Data
+                };
+
+                try {
+                    const response = await fetch(APP_SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if(result.result === "success") {
+                        alert("Bukti pembayaran berhasil dikirim! Kami akan segera mengkonfirmasi pesanan Anda.");
+                        closeSuccessModal();
+                    } else {
+                        alert("Gagal mengunggah bukti: " + result.error);
+                    }
+                } catch (err) {
+                    alert("Terjadi kesalahan koneksi saat mengunggah.");
+                    console.error(err);
+                } finally {
+                    btn.innerHTML = `Kirim Bukti Pembayaran <i class="fas fa-paper-plane"></i>`;
+                    btn.disabled = false;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            const panel = document.getElementById('success-panel');
+            panel.classList.remove('scale-100');
+            panel.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function downloadReceiptFromHistory(orderId) {
+            let history = JSON.parse(localStorage.getItem('kripsday_history') || '[]');
+            let order = history.find(o => o.id === orderId);
+            if(order) downloadReceiptTxt(order);
+        }
+
+        function downloadReceiptTxt(data) {
+            let struk = "========================================\n";
+            struk += "            KRIPSDAY RECEIPT            \n";
+            struk += "========================================\n\n";
+            
+            struk += `ID Pesanan : ${data.id}\n`;
+            struk += `Waktu      : ${data.waktu}\n`;
+            struk += `Nama       : ${data.nama}\n`;
+            struk += `Pengiriman : ${data.tipe_kirim}\n`;
+            struk += "----------------------------------------\n";
+            struk += "Rincian Pesanan:\n\n";
+            
+            if (Array.isArray(data.items)) {
+                data.items.forEach(item => {
+                    let itemTotal = item.qty * item.price;
+                    struk += `- ${item.name}\n`;
+                    struk += `  ${item.qty} x Rp ${item.price.toLocaleString('id-ID')} = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+                });
+            } else {
+                struk += `- ${data.items}\n`;
+            }
+            
+            struk += "----------------------------------------\n";
+            struk += `TOTAL BELANJA : Rp ${data.total.toLocaleString('id-ID')}\n`;
+            struk += "========================================\n";
+            struk += "      Terima kasih telah berbelanja!    \n";
+            struk += "        Kriuknya Bikin Lupa Mantan!     \n";
+
+            const blob = new Blob([struk], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `Struk_Kripsday_${data.id}.txt`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        function toggleAddressFields() {
+            const method = document.querySelector('input[name="pengiriman"]:checked').value;
+            const codBox = document.getElementById('alamat-cod');
+            const eksBox = document.getElementById('alamat-ekspedisi');
+            
+            if (method === 'cod') {
+                codBox.classList.remove('hidden');
+                eksBox.classList.add('hidden');
+                document.getElementById('kota-cod').required = true;
+                document.getElementById('detail-cod').required = true;
+                document.getElementById('provinsi').required = false;
+                document.getElementById('kota').required = false;
+            } else {
+                codBox.classList.add('hidden');
+                eksBox.classList.remove('hidden');
+                document.getElementById('kota-cod').required = false;
+                document.getElementById('detail-cod').required = false;
+                document.getElementById('provinsi').required = true;
+                document.getElementById('kota').required = true;
+            }
+        }
+
+        async function batalkanPesanan(orderId) {
+            if(!confirm("Yakin ingin membatalkan atau menghapus riwayat pesanan " + orderId + "?")) return;
+
+            let history = JSON.parse(localStorage.getItem('kripsday_history') || '[]');
+            history = history.filter(o => o.id !== orderId);
+            localStorage.setItem('kripsday_history', JSON.stringify(history));
+            renderOrderHistory();
+            alert("Pesanan berhasil dibatalkan/dihapus dari riwayat Anda.");
+
+            try {
+                fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: "CANCEL_ORDER", id: orderId })
+                }).catch(e => console.log("Abaikan error server"));
+            } catch (e) {}
+        }
+
+        async function prosesCheckout() {
+            const btn = document.getElementById('btn-checkout');
+            const methodEl = document.querySelector('input[name="pengiriman"]:checked');
+            const nama = document.getElementById('nama').value.trim();
+            const kontak = document.getElementById('kontak').value.trim();
+
+            if (!nama || !kontak || !methodEl) return alert('Mohon lengkapi form pengiriman!');
+
+            btn.innerText = 'Mengirim Pesanan...'; 
+            btn.disabled = true;
+
+            const orderId = "KRP-" + Math.floor(1000 + Math.random() * 9000);
+            const totalBelanja = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const stringWaktu = new Date().toLocaleString('id-ID').replace(/\./g, ':');
+
+            const stringItemsForSheet = cart.map(item => `${item.qty}x ${item.name}`).join(', ');
+
+            const orderData = {
+                id: orderId,
+                waktu: stringWaktu,
+                nama: nama,
+                whatsapp: kontak,
+                tipe_kirim: methodEl.value.toUpperCase(),
+                total: totalBelanja,
+                items: [...cart], 
+                status: 'PROCESSING'
+            };
+
+            try {
+                const response = await fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        ...orderData,
+                        action: "ADD_ORDER",
+                        items: stringItemsForSheet 
+                    })
+                });
+                const result = await response.json();
+
+                if (result.result === "success") {
+                    let historyPesanan = JSON.parse(localStorage.getItem('kripsday_history') || '[]');
+                    historyPesanan.unshift(orderData);
+                    localStorage.setItem('kripsday_history', JSON.stringify(historyPesanan));
+
+                    currentOrderData = orderData; 
+                    openSuccessModal(orderId, totalBelanja, orderData);
+                    
+                    cart = [];
+                    updateCartUI();
+                    toggleCartModal();
+                    document.getElementById('checkout-form').reset();
+                    renderOrderHistory(); 
+                } else {
+                    alert("Gagal menyimpan pesanan. Coba lagi.");
+                }
+            } catch (error) {
+                console.error("Error Checkout:", error);
+                alert('Terjadi kesalahan koneksi ke server.');
+            } finally {
+                btn.innerText = 'Konfirmasi Pesanan';
+                btn.disabled = false;
+            }
+        }
+
+        async function cekStatus() {
+            const id = document.getElementById('track-id').value.trim().toUpperCase();
+            if(!id) return;
+
+            const statusText = document.getElementById('status-text');
+            document.getElementById('tracking-result').classList.remove('hidden');
+            statusText.innerText = "MENGECEK...";
+
+            try {
+                const response = await fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: "GET_STATUS", id: id })
+                });
+
+                if (!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                
+                let history = JSON.parse(localStorage.getItem('kripsday_history') || '[]');
+                let index = history.findIndex(o => o.id === id);
+                if(index !== -1) {
+                    history[index].status = data.status;
+                    localStorage.setItem('kripsday_history', JSON.stringify(history));
+                    renderOrderHistory();
+                }
+
+                statusText.innerText = data.status.replace(/-/g, ' ');
+                statusText.className = "text-xl font-black uppercase " + 
+                    (data.status === 'NOT-FOUND' ? 'text-red-600' : 'text-green-600');
+
+            } catch (e) {
+                statusText.innerText = "KONEKSI ERROR";
+                statusText.className = "text-xl font-black text-red-600";
+            }
+        }
+
+        function renderOrderHistory() {
+            const historyList = document.getElementById('order-history-list');
+            let historyPesanan = JSON.parse(localStorage.getItem('kripsday_history') || '[]');
+            
+            if(historyPesanan.length === 0) {
+                historyList.innerHTML = '<p class="text-gray-400 text-center py-4 italic text-xs">Belum ada riwayat pesanan.</p>';
+                return;
+            }
+
+            historyList.innerHTML = '';
+            historyPesanan.slice(0, 5).forEach(order => {
+                const currentStatus = (order.status || "PROCESSING").toUpperCase();
+                
+                const canCancel = ["PROCESSING", "NOT-FOUND", "PESANAN TIDAK DITEMUKAN", "KONEKSI ERROR"].includes(currentStatus);
+                const isPaymentConfirmed = ["PAYMENT-CONFIRMED", "PACKING", "TRANSPORTING"].includes(currentStatus);
+                
+                let receiptHtml = '';
+                if (isPaymentConfirmed) {
+                    if (order.tipe_kirim === 'COD') {
+                        receiptHtml = `<div class="mt-3 text-[10px] text-yellow-700 bg-yellow-50 p-2 rounded-lg border border-yellow-200 font-bold flex gap-1"><i class="fas fa-info-circle mt-1 ml-2"></i> Jangan lupa mengambil lembar receipt ketika melakukan COD.</div>`;
+                    } else {
+                        receiptHtml = `<button onclick="downloadReceiptFromHistory('${order.id}')" class="mt-3 w-full bg-blue-50 text-blue-600 border border-blue-200 py-2 rounded-lg text-xs font-bold hover:bg-blue-100 transition flex items-center justify-center gap-2"><i class="fas fa-file-download"></i> Download Receipt</button>`;
+                    }
+                }
+
+                historyList.innerHTML += `
+                    <div class="p-4 bg-white rounded-xl border border-gray-100 mb-2 shadow-sm">
+                        <div class="flex justify-between items-start cursor-pointer group" onclick="document.getElementById('track-id').value = '${order.id}'; cekStatus();">
+                            <div>
+                                <span class="font-black text-kripsdark group-hover:text-kripsred transition">${order.id}</span>
+                                <span class="text-[10px] text-gray-400 block mt-0.5">${order.waktu}</span>
+                            </div>
+                            <span class="bg-gray-50 border border-gray-100 text-[10px] font-bold px-2.5 py-1 rounded-lg text-gray-700 uppercase tracking-wide">${currentStatus.replace(/-/g, ' ')}</span>
+                        </div>
+                        ${receiptHtml}
+                        ${canCancel ? `<button onclick="batalkanPesanan('${order.id}')" class="mt-3 text-[10px] text-red-500 font-bold hover:underline w-full text-left bg-red-50 py-1.5 px-2 rounded-lg flex items-center justify-center gap-1 transition hover:bg-red-100"><i class="fas fa-times-circle"></i> Batalkan Pesanan</button>` : ''}
+                    </div>`;
+            });
+        }
+    </script>
+</body>
+</html>
